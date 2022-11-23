@@ -1,4 +1,5 @@
 This is a light telegram bot of a crypto wallet
+
 There are two main components:
 - a smart contract (blockchain/contracts/wallet.sol)
 - a telegram bot (telegram/src/bot.py)
