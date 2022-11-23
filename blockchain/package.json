@@ -1,0 +1,27 @@
+{
+  "name": "crypto_wallet_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Firexd2/crypto_wallet_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Firexd2/crypto_wallet_bot/issues"
+  },
+  "homepage": "https://github.com/Firexd2/crypto_wallet_bot#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.1",
+    "truffle": "^5.6.5",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
