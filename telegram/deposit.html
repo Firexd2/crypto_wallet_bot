@@ -1,0 +1,26 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>-->
+<script>
+    // var web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545/'));
+    // var web3 = new Web3(new Web3.providers.HttpProvider('https://eth-goerli.g.alchemy.com/v2/yev-bzlnioa8s6D7371z8IgfTimVZft9/'));
+    let web3 = new Web3("{{ web3_provider_url }}");
+    var contractAddress = '{{ contract_address }}';
+    var abi = {{ abi_json }};
+    let contract = new web3.eth.Contract(abi, contractAddress);
+    if (window.ethereum) {
+        window.ethereum
+            .enable()
+            .then(accounts => {
+                contract.methods.deposit('{{ external_key }}', {{ buyer_id }}).send({from: accounts[0], value: {{ value }}}).then(function(tx) {
+                    console.log("Transaction: ", tx);
+                    document.getElementById("result").innerHTML='Success. Please, close this page';
+                });
+            })
+            .catch(reason => {
+                alert("to confirm this operation you need to enable Metamask wallet")
+            });
+    } else {
+        // The user doesn't have Metamask installed.
+    }
+</script>
+<div id="result">Error</div>
